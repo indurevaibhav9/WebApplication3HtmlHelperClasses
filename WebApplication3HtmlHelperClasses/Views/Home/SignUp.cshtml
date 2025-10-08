@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    List<string> crs = new List<string> { "dotnet", "CPP", "Python", "Azure", "Devops" };
+}
+<h2>Register</h2>
+@using(Html.BeginForm("showSignupData", "Home"))
+{
+    
+    @Html.Label("fullName", "Enter Full Name", new {@class="form-label"})
+    @Html.TextBox("fullName", "", new {@class="form-control"})
+    <br />
+    <div>
+        @Html.Label("userName", "Enter User Name", new { @class = "form-label" })
+        @Html.TextBox("userName", "", new { @class = "form-control" })
+    </div>
+
+    <div>
+        @Html.Label("password", "Enter password", new { @class = "form-label" })
+        @Html.Password("password", "", new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.Label("rePassword", "Confirm password", new { @class = "form-label" })
+        @Html.Password("rePassword", "", new { @class = "form-control" })
+    </div>
+    @Html.Label("age", "Enter Age", new { @class = "form-label" })
+    @Html.TextBox("age", "", new { @class = "form-control" })
+    <br />
+
+    @Html.Label("gender", "Select Gender", new { @class = "form-label" })
+    <div>
+        @Html.RadioButton("gender", "male", true, new { @id = "male", @class = "form-Control" }) Male
+    </div>
+    <div>
+        @Html.RadioButton("gender", "female", false, new { @id = "female", @class = "form-Control" }) Female
+    </div>
+    <div>
+        @Html.RadioButton("gender", "other", false, new { @id = "other", @class = "form-Control" }) Other
+    </div>
+
+    <br />
+
+    <div>
+        @Html.Label("course", "Courses", new {@class="form-label"})
+        @Html.DropDownList("course", new SelectList(crs), "--select course--");
+    </div>
+
+    <div>
+        <input type="submit" value="Register" class="btn btn-success"/> 
+        <input type="reset" value="Reset" class="btn btn-danger" />
+    </div>
+
+    <div>
+        If aleredy registered @Html.ActionLink("Click here to login", "Index", "Home")
+    </div>
+}

@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Student
+<h2>Student Registration</h2>
+
+@using (Html.BeginForm("SignUp", "TemplatedHelper"))
+{
+    @Html.DisplayName("Id")
+    @Html.Editor("Id")
+    <br />
+
+    @Html.DisplayName("Name")
+    @Html.Editor("Name")
+    <br />
+
+    @Html.DisplayName("Email")
+    @Html.Editor("Email")
+    <br />
+
+    @Html.DisplayName("Dob")
+    @Html.Editor("Dob")
+    <br />
+
+    @Html.DisplayName("Address")
+    @Html.Editor("Address")
+    <br />
+
+    <input type="submit" value="submit" />
+}

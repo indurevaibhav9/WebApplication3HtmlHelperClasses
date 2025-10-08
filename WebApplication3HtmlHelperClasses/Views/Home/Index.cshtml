@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h2>Login</h2>
+
+@using(Html.BeginForm("SendData", "Home"))
+{
+    @Html.Label("uname", "Enter User Name", new {@class="form-label"})
+    @Html.TextBox("uname", "", new {@class="form-control"})
+    <br/>
+    @Html.Label("password", "Enter Name", new { @class = "form-label" })
+    @Html.TextBox("password", "", new { @class = "form-control" })
+
+    <br />
+    <button type="submit" >Submit </button>
+
+    <div>
+      Not Registered?  @Html.ActionLink("Click here to Register", "SignUp", "Home")
+    </div>
+}
